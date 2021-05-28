@@ -74,6 +74,20 @@ function reset(){
     seconds = 0;
     minutes = 0;
     hours = 0;
+    count = 0;
     document.getElementById("display").innerHTML = "00:00:00";
     document.getElementById("startStop").innerHTML = "Start"
 }
+
+
+// How many times button is clicked
+
+var count = 0;
+
+
+function counter(){
+    var btn = document.getElementById("Counter");
+    var disp = document.getElementById("disp");
+    count++;
+    disp.innerHTML = count;
+  };
