@@ -1,17 +1,69 @@
-const startingMinutes = 10;
+let seconds = 0;
+let minutes = 0;
+let hours = 0;
 
-let time = startingMinutes * 60;
+//Define vars to hold display value
+let displaySeconds = 0;
+let displayMinutes = 0;
+let displayHours = 0;
 
-const countDownEl = document.createElementById('countdown');
+//Define var to hold setInterval() func
+let interval = null;
 
-setInterval(updateCountdown, 1000);
- 
-function updateCountdown() {
-    const minutes = Math.floor(time / 60);
+//Define var to hold status
+let status = "stopped";
 
-    let seconds = time % 60;
+// Logic to when to increment next value
+function stopWatch(){
+
+    seconds++;
+
+    // When mins change
+    if(seconds/60 == 1){
+        seconds = 0;
+        minutes++;
+
+        if(minutes / 60 == 1){
+            minutes = 0;
+            hours++;
+        }
+    }
+
+    // If secs/mins/hrs are 1 digit, add leading 0
+    if(seconds < 10){
+        displaySeconds = "0" + seconds.toString();
+    }
+    else{
+        displaySeconds = seconds;
+    }
+    if(minutes < 10){
+        displayMinutes = "0" + minutes.toString();
+    }
+    else{
+        displayMinutes = minutes;
+    }
+    if(hours < 10){
+        displayHours = "0" + hours.toString();
+    }
+    else{
+        displayHours = hours;
+    }
     
+    // Display time
+    document.getElementById("display").innerHTML = displayHours + ":" + displayMinutes + ":" + displaySeconds;
+}
 
-    countDownEl.innerHTML = minutes+":"+seconds;
-    time = time < 0 ? 0: time;
+
+function startStop(){
+    if(status == "stopped"){
+        //Start stopwatch (call setInterval)
+        interval = window.setInterval(stopWatch,1000);
+        document.getElementById("startStop").innerHTML = "Stop";
+        status = "started"
+    }
+    else{
+        window.clearInterval(interval)
+        document.getElementById("startStop").innerHTML = "Start";
+        status = "stopped"
+    }
 }
