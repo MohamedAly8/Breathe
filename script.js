@@ -77,6 +77,7 @@ function reset(){
     count = 0;
     document.getElementById("display").innerHTML = "00:00:00";
     document.getElementById("startStop").innerHTML = "Start"
+    startStop();
 }
 
 
@@ -91,3 +92,27 @@ function counter(){
     count++;
     disp.innerHTML = count;
   };
+
+
+
+  //Breathe IN / OUT
+  function change() {
+
+    var btn = document.getElementById("Breather");
+
+    if (btn.value == "Inhale") {
+        btn.value = "Exhale";
+        btn.innerHTML = "Exhale";
+    }
+    else {
+        btn.value = "Inhale";
+        btn.innerHTML = "Inhale";
+    }
+}
+
+// Reset Timer and Button click counter
+function reset_count() {
+    var disp = document.getElementById("disp");
+    disp.innerHTML = 0;
+
+}

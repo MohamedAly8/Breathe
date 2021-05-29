@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,21 +20,22 @@
 
             <div class="buttons">
                 <button class="btn-1" id="startStop" onclick="startStop()">Start</button>
-                <button class="btn-1" id="reset" onclick="reset()">Reset</button>
+                <button class="btn-1" id="reset" onclick="reset(),reset_count()">Reset</button>
                 
             </div>
 
-            <div class="buttons">
-            <button class="btn-2" id="Counter" onclick="counter()">Click Here!</button>    
-            </div>
             <div>
                 <p>
                     Button clicked <span
                     id="disp">0</span> Times
                 </p>
             </div>
+            <div class="buttons">
+                <button class="Breather" onclick="change(),counter()" id="Breather" value="Inhale">Inhale</button>
+            </div>
         </div>
     </body> 
+ 
 </html>
 
 
